@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Objects</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .interactive-object {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="object1" class="interactive-object" onclick="changeColor(this)">Click to change color</div>
+    <div id="object2" class="interactive-object" onclick="alert('You clicked the second object!')">Click for an alert</div>
+    <div id="object3" class="interactive-object" onmouseover="changeText(this)">Hover to change text</div>
+    <div id="object4" class="interactive-object" onclick="toggleVisibility('object5')">Click to show/hide object 5</div>
+    <div id="object5" class="interactive-object" style="display: none;">Object 5 (hidden)</div>
+  </div>
+    <script>
+    function changeColor(element) {
+      const colors = ['#f00', '#0f0', '#00f', '#ff0', '#f0f', '#0ff'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      element.style.backgroundColor = randomColor;
+    }
+
+    function changeText(element) {
+      element.textContent = 'Text changed!';
+    }
+
+    function toggleVisibility(elementId) {
+      const element = document.getElementById(elementId);
+      if (element.style.display === 'none') {
+        element.style.display = 'block';
+      } else {
+        element.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
+
